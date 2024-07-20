@@ -1,0 +1,24 @@
+<div class="text-center"  >
+    <h1 class="display-4" *ngIf="!isAuthenticated">Welcome, Guest</h1>
+    <h1 class="display-4" *ngIf="isAuthenticated">Welcome, {{username}}</h1>
+    <p>Learn about <a href="https://www.angular.io">building Web apps with Angular</a>.</p>
+</div>
+
+<p>
+	<button
+		type="button"
+		class="btn btn-outline-primary"
+		(click)="collapse.toggle()"
+		[attr.aria-expanded]="!isCollapsed"
+		aria-controls="collapseExample"
+	>
+		Toggle
+	</button>
+</p>
+<div style="min-height: 100px">
+	<div #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsed" [horizontal]="true" style="max-width: 300px">
+		<div class="card" style="width: 300px">
+			<div class="card-body">You can collapse horizontally this card by clicking Toggle</div>
+		</div>
+	</div>
+</div>

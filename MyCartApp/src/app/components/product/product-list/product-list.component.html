@@ -1,0 +1,41 @@
+<h1>Products</h1>
+<div *ngIf="loading">
+  <img src="assets/loaderImage.gif" alt="loading..." />
+  </div>
+<table class="table" *ngIf="!loading">
+  <thead>
+    <tr>
+      <th>Category Name</th>
+      <th>Product Name</th>
+      <th>Product Description</th>
+      <th>Product Price</th>
+      <th>Available</th>
+      <th>Active</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngIf="!loading && !products">
+      <td colspan="7">No record found...</td>
+     </tr>
+    <tr *ngFor="let product of products">
+      <td>{{product.category.name}}</td>
+      <td>{{product.productName}}</td>
+      <td>{{product.productDescription}}</td>
+      <td>{{product.productPrice | currency}}</td>
+      <td *ngIf="product.inStock">Available</td>
+      <td *ngIf="!product.inStock">Not Available</td>
+      <td *ngIf="product.isActive">Visible</td>
+      <td *ngIf="!product.isActive">Not Visible</td>
+     
+      <td>
+      
+        <a [routerLink]="['/modifyProduct' ,product.productId]">Edit</a>| <a [routerLink]="['/detailsproduct',product.productId]" routerLinkActive="router-link-active" >Details</a>|
+        <button class="btn btn-outline-danger rounded-pill btn-sm" (click)="confirmDelete(product.productId)" >Delete</button>| <a [routerLink]="['/modifyProductrf' ,product.productId]">Editrf</a>
+      </td>
+    </tr>
+   
+  </tbody>
+</table>
+<a [routerLink]="['/addProduct']">Add</a> |<a [routerLink]="['/addProductrf']">Add-RF</a>
+

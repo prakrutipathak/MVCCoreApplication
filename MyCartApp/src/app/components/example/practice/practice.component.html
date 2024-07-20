@@ -1,0 +1,16 @@
+<!-- string interpolation -->
+{{ pageTitle }}
+<div>
+    <h1>ngif Directive use</h1>
+    <p *ngIf="isLogged">You are logged in.</p>
+    <p *ngIf="!isLogged">Please log in to continue</p>
+</div>
+<div>
+    <h1>ngif difference method use ng template</h1>
+    <ng-template [ngIf]="isLogged">
+        <div>You are logged in.</div>
+    </ng-template>
+    <ng-template [ngIf]="!isLogged">
+        <div>Please log in to continue</div>
+    </ng-template>
+</div>

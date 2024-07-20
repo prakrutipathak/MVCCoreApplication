@@ -1,0 +1,64 @@
+<div class="container">
+    <h2 class="text-center">Add Product</h2>
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <form #myForm="ngForm" class="need-validation" (ngSubmit)="onSubmit(myForm)" novalidate>
+                <div class="mb-3">
+                    <label class="form-label" for="categoryId">Category Name:</label>
+                    <select id="categoryId" name="categoryId" class="form-control" [(ngModel)]="product.categoryId" required>
+                        <option value="">Select your category</option>
+                        <option *ngFor="let category of categories" [value]="category.categoryId">{{category.categoryName}}</option>
+                    </select>
+                    <div *ngIf="myForm.controls['categoryId']?.invalid && myForm.controls['categoryId']?.touched">
+                        <small class="text-danger">category is required.</small>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="name"> ProductName:</label>
+                    <input type="text" class="form-control" id="name" name="name" [(ngModel)]="product.productName" required minlength="3">
+                    <div *ngIf="myForm.controls['name']?.invalid && myForm.controls['name']?.touched">
+                    <small class="text-danger" *ngIf="myForm.controls['name']?.errors?.['required']">Name is required.</small>
+                    <small class="text-danger" *ngIf="myForm.controls['name']?.errors?.['minlength']">Name must be at least 3 characters long.</small>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="description">Description:</label>
+                    <input type="text" class="form-control" id="description" name="description" [(ngModel)]="product.productDescription" required minlength="3">
+                    <div *ngIf="myForm.controls['description']?.touched">
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="productPrice"> Product Price:</label>
+                    <input type="text" class="form-control" id="productPrice" name="productPrice" [(ngModel)]="product.productPrice" required >
+                    <div *ngIf="myForm.controls['productPrice']?.invalid && myForm.controls['productPrice']?.touched">
+                    <small class="text-danger" *ngIf="myForm.controls['productPrice']?.errors?.['required']">Product price is required.</small>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">inStock:</label>
+                    <div>
+                        <input type="radio" id="true" name="inStock" [value]=true required>
+                        <label class="form-label" for="available">Available</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="false" name="inStock"  [value]=false required>
+                        <label class="form-label" for="notavailable">Not Available</label>
+                    </div>
+                    <div *ngIf="myForm.controls['inStock']?.invalid && myForm.controls['inStock']?.touched">
+                        <small class="text-danger">inStock is required.</small>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">isActive:</label>
+                    <div>
+                        <input type="checkbox" id="isActive" name="isActive" [(ngModel)]="product.isActive">
+                        <label class="form-label" for="isActive">isActive</label>
+                    </div>
+                    
+                </div>
+                <button type="submit" class="btn btn-primary" [disabled]="myForm.invalid">Submit</button>
+                <a [routerLink]="['/products']" routerLinkActive="router-link-active" >Back to list</a>
+            </form>
+        </div>
+    </div>
+</div>

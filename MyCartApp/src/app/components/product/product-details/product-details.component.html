@@ -1,0 +1,27 @@
+<div class="container">
+    <h2 class="text-center">Product Details</h2>
+    <div class="card mb-3">
+        <div class="card-header">
+            <h5 class="card-title">{{product.productName}}</h5>
+        </div>
+    <div class="card-body">
+        <h5 class="card-title">Category Name: {{product.category.name}}</h5>
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">Product Description: {{product.productDescription}}</h5>
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">Product Price: {{product.productPrice}}</h5>
+    </div>
+    <div class="card-body">
+        <h5 class="card-title" *ngIf="product.inStock">inStock: Available</h5>
+        <h5 class="card-title" *ngIf="!product.inStock">inStock: Not Available</h5>
+    </div>
+    <div class="card-body">
+        <h5 class="card-title" *ngIf="product.isActive">isActive: Visible</h5>
+        <h5 class="card-title" *ngIf="!product.isActive">isActive: Not Visible</h5>
+    </div>
+    
+    </div>
+    <a [routerLink]="['/products']" routerLinkActive="router-link-active" >Back to list</a>
+</div>

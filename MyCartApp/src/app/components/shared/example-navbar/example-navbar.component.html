@@ -1,0 +1,70 @@
+<header>
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <div class="container-fluid">
+            <a class="navbar-brand" [routerLink]="['/home']" routerLinkActive="router-link-active" >My Product App</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                <ul class="navbar-nav flex-grow-1">
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" [routerLink]="['/home']" routerLinkActive="router-link-active"  >Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" [routerLink]="['/privacy']" routerLinkActive="router-link-active" >Privacy</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" [routerLink]="['/categories']" routerLinkActive="router-link-active" >Category</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" [routerLink]="['/products']" routerLinkActive="router-link-active" >Product</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link text-dark" [routerLink]="['/ngif']" routerLinkActive="router-link-active" >ngif</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link text-dark" [routerLink]="['/ngfor']" routerLinkActive="router-link-active" >ngfor</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link text-dark" [routerLink]="['/pipes']" routerLinkActive="router-link-active" >Pipes</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link text-dark" [routerLink]="['/template']" routerLinkActive="router-link-active" >template</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link text-dark" [routerLink]="['/reactiveform']" routerLinkActive="router-link-active" >Reactive Form</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link text-dark" [routerLink]="['/categoriesproduct']" routerLinkActive="router-link-active" >Category-Product</a>
+                  </li>
+                </ul>
+                <ul class="nav navbar-nav ml-auto" *ngIf="!isAuthenticated">
+                  <li class="nav-item">
+                      <a class="nav-link" [routerLink]="['/signup']" routerLinkActive="router-link-active" ><span class="fas fa-user"> Sign Up</span></a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" [routerLink]="['/signin']" routerLinkActive="router-link-active" ><span class="fas fa-sign-in-alt"> Sign In</span></a>
+                  </li>
+              </ul>
+              <ul class="nav navbar-nav ml-auto" *ngIf="isAuthenticated">
+                  <li class="nav-item">
+                      <a class="nav-link" [routerLink]="['/profile']" routerLinkActive="router-link-active" ><span class="fas fa-user"> {{username}}</span></a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" (click)="signOut()" [routerLink]="['/signin']" style="cursor: pointer;" routerLinkActive="router-link-active" ><span class="fas fa-sign-out-alt"> SignOut</span></a>
+                  </li>
+              </ul>
+            </div>
+        </div>
+    </nav>
+  </header>
+  <!-- <div class="container">
+    <main role="main" class="pb-3">
+          
+        <router-outlet></router-outlet>
+    </main>
+  </div> -->
+  
+ 
+  

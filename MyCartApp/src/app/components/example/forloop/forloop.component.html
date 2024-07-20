@@ -1,0 +1,43 @@
+
+<!-- ng for -->
+<h1>simple ngfor</h1>
+<div>
+    <h1>List of categories</h1>
+    <ul>
+        <li *ngFor="let categories of Categories">
+            <h3>{{categories.categoryName}}</h3>
+            <h3>{{categories.categoryDescription}}</h3>
+        </li> 
+    </ul>
+</div>
+
+<h1>using ngtemplate ngfor</h1>
+  <!-- ng for using ng template -->
+  <ng-template ngFor let-categories [ngForOf]="Categories" >
+    <h3>{{categories.categoryName}}</h3>
+    <h3>{{categories.categoryDescription}}</h3>
+</ng-template>
+<!-- ng for in table-->
+<table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+       
+      </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let categories of Categories">
+         <td> {{categories.categoryName}}</td>  
+        <td>{{categories.categoryDescription}}</td>
+    </tr>
+    <ng-template ngFor let-categories [ngForOf]="Categories" >
+    <tr> 
+            <td>{{categories.categoryName}}</td>
+            <td>{{categories.categoryDescription}}</td>
+    </tr>
+</ng-template>
+    </tbody>
+  </table>
+  
+

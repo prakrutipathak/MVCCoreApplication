@@ -1,0 +1,12 @@
+<h1>Built-In pipe example</h1>
+<p>Original Date:{{today}}</p>
+<p>Formated Date:{{today | date:"fullDate"}}</p>
+<p>Uppercase: {{message | uppercase}}</p>
+<p>Lowercase: {{message | lowercase}}</p>
+<p>Capitalize: {{message | capitalize}}</p>
+<p>Currency: {{amount | currency:'USD':true}}</p>
+<p>Decimal: {{amount | number:'1.2-2'}}</p>
+<p>Decimal: {{amount | number:'6.2-3'}}</p>
+<p>Percentage: {{percentage | percent}}</p>
+<p>JSON: {{user |json}}</p>
+<p>Slice: {{message |slice:0:5}}</p>
